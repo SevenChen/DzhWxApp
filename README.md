@@ -1,6 +1,10 @@
-# dzh-project
+# 大智慧行情 
 
-> A Mpvue project
+大智慧行情 微信app 基于 mpvue框架 开发的，因为性能问题，部分页面用的原生的
+
+执行完 run dev后 微信开发者工具指向 DzhWxApp 目录
+
+> 
 
 ## Build Setup
 
