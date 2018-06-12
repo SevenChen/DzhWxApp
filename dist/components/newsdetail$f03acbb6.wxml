@@ -1,0 +1,21 @@
+<import src="wxParse$18247183" />
+<template name="newsdetail$f03acbb6">
+  <view class="_div data-v-6023d4c0">
+    <view class="_main data-v-6023d4c0 detail">
+      <view class="_h1 data-v-6023d4c0">{{title}}</view>
+      <view class="_p data-v-6023d4c0 info">来源：
+        <label class="_span data-v-6023d4c0">{{source}}</label>
+        <label class="_span data-v-6023d4c0">{{time}}</label>
+      </view>
+      <view class="_div data-v-6023d4c0 text">
+        <template bindnavigate="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0'], $root}}" is="wxParse$18247183"></template>
+      </view>
+      <view hidden="{{!(fromApp)}}" class="_aside data-v-6023d4c0 side-bar {{[isFoldUp ? 'foldUp' : '']}}">
+        <button open-type="launchApp" app-parameter="{{'dzh_browser_url&goto=0&screen=232&id='+id+'&resource='+source+'&title='+title+'&url='+jsonurl}}" binderror="handleProxy" class="_button data-v-6023d4c0 right-bar right-bar1" data-eventid="{{'1'}}"
+          data-comkey="{{$k}}">打开APP</button>
+        <button app-parameter class="_button data-v-6023d4c0 right-bar right-bar2" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">去首页</button>
+        <label class="_span data-v-6023d4c0 side-bar-icon" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}"></label>
+      </view>
+    </view>
+  </view>
+</template>

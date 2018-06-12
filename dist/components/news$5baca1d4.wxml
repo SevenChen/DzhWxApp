@@ -1,0 +1,18 @@
+<template name="news$5baca1d4">
+  <view class="_div data-v-61a8acaf">
+    <view class="_main data-v-61a8acaf main">
+      <scroll-view class="_scroll-view data-v-61a8acaf news-list" scroll-y="true" bindscrolltolower="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" style=" {{('height:' + (windowHeight + 'px') + ';')}}">
+        <view class="_view data-v-61a8acaf item" wx:for="{{newsList}}" wx:for-index="index" wx:for-item="news">
+          <navigator url="{{'/pages/newsdetail/main?jsonurl='+news.url}}" class="_a data-v-61a8acaf">
+            <view class="_h3 data-v-61a8acaf news-tit">{{news.title}}</view>
+            <view class="_p data-v-61a8acaf">
+              <label wx:if="{{ news.resType!='' }}" class="_span data-v-61a8acaf tag">{{news.resType}}</label>
+              <label class="_span data-v-61a8acaf time">{{news.shortTime}}</label>
+              <label class="_span data-v-61a8acaf comments">{{news.views}}阅读</label>
+            </view>
+          </navigator>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</template>

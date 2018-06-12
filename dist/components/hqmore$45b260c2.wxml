@@ -1,0 +1,22 @@
+<template name="hqmore$45b260c2">
+  <view class="_div data-v-544b8fba">
+    <view class="_section data-v-544b8fba market-list-th">
+      <label class="_span data-v-544b8fba">沪深A股</label>
+      <label bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_span data-v-544b8fba {{Title1Class}}">{{title1}}</label>
+      <label bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_span data-v-544b8fba {{Title2Class}}">{{title2}}</label>
+    </view>
+    <view class="_section data-v-544b8fba market-list-tb">
+      <scroll-view class="_scroll-view data-v-544b8fba ranking-list" scroll-y="true" bindscrolltolower="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" style=" {{('height:' + (windowHeight + 'px') + ';')}}">
+        <view wx:key="index" key="{{index}}" wx:for="{{stockList}}" wx:for-index="index" wx:for-item="stock" class="_li data-v-544b8fba">
+          <navigator url="{{'/pages/stock/main?code='+stock.Obj}}" class="_a data-v-544b8fba">
+            <label class="_span data-v-544b8fba">{{stock.ZhongWenJianCheng}}
+              <view class="_small data-v-544b8fba">{{stock.Obj}}</view>
+            </label>
+            <label class="_span data-v-544b8fba {{[  stock.ZhangFu > 0 ? 'font-red' : '',  stock.ZhangFu < 0 ? 'font-green' : '',  stock.ZhangFu == 0 ? 'font-gray' : '']}}">{{stock.ZuiXinJiaTxt}}</label>
+            <label class="_span data-v-544b8fba {{[  stock.ZhangFu > 0 ? 'font-red' : '',  stock.ZhangFu < 0 ? 'font-green' : '',  stock.ZhangFu == 0 ? 'font-gray' : '']}}">{{stock.title2TXT}}</label>
+          </navigator>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</template>

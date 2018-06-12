@@ -1,0 +1,284 @@
+<template name="stock$e5eed86a">
+  <view class="_div data-v-468de450">
+    <view class="_header data-v-468de450 header" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+      <view class="_div data-v-468de450 header-index">
+        <label class="_span data-v-468de450 {{FontClass}}">{{dynaData.ZuiXinJia}}</label>
+        <view class="_p data-v-468de450 {{FontClass}}">
+          <label class="_span data-v-468de450">{{dynaData.ZhangDie}}</label>
+          <label class="_span data-v-468de450">{{dynaData.ZhangFuTxt}}</label>
+        </view>
+      </view>
+      <view class="_div data-v-468de450 header-info">
+        <view class="_p data-v-468de450">最高：</view>
+        <view class="_p data-v-468de450">{{dynaData.ZuiGaoJia}}</view>
+        <view class="_p data-v-468de450">最低：</view>
+        <view class="_p data-v-468de450">{{dynaData.ZuiDiJia}}</view>
+      </view>
+      <view class="_div data-v-468de450 header-info">
+        <view class="_p data-v-468de450">成交量：</view>
+        <view class="_p data-v-468de450">{{dynaData.ChengJiaoLiang}}</view>
+        <view class="_p data-v-468de450">成交额：</view>
+        <view class="_p data-v-468de450">{{dynaData.ChengJiaoE}}</view>
+      </view>
+      <view class="_div data-v-468de450 header-info" hidden="{{!(IsAstock)}}">
+        <view class="_p data-v-468de450">总市值：</view>
+        <view class="_p data-v-468de450">{{dynaData.ZongShiZhi}}</view>
+        <view class="_p data-v-468de450">量比：</view>
+        <view class="_p data-v-468de450">{{dynaData.LiangBi}}</view>
+      </view>
+      <label class="_span data-v-468de450 header-btn {{[pankou ? 'up' : '']}}">盘口</label>
+      <view wx:if="{{stocktype==1}}" class="_div data-v-468de450 header-info-more" hidden="{{!(pankou)}}" catchtouchmove="preventTouchMove">
+        <view class="_div data-v-468de450 header-info-more-w">
+          <view class="_ul data-v-468de450 more-block">
+            <view class="_li data-v-468de450">涨停
+              <label class="_span data-v-468de450 font-red">{{dynaData.ZhangTing}}</label>
+            </view>
+            <view class="_li data-v-468de450">今开
+              <label class="_span data-v-468de450 {{FontClass}}">{{dynaData.KaiPanJia}}</label>
+            </view>
+            <view class="_li data-v-468de450">振幅
+              <label class="_span data-v-468de450">{{dynaData.ZhenFu}}</label>
+            </view>
+            <view class="_li data-v-468de450">委比
+              <label class="_span data-v-468de450 {{[  dynaData.WeiBi > 0 ? 'font-red' : '',  dynaData.WeiBi < 0 ? 'font-green' : '',  dynaData.WeiBi == 0 ? 'font-gray' : '']}}">{{dynaData.WeiBi}}</label>
+            </view>
+            <view class="_li data-v-468de450">总市值：
+              <label class="_span data-v-468de450">{{zsDynaData.ZongShiZhi}}</label>
+            </view>
+          </view>
+          <view class="_ul data-v-468de450 more-block">
+            <view class="_li data-v-468de450">跌停
+              <label class="_span data-v-468de450 font-green">{{dynaData.DieTing}}</label>
+            </view>
+            <view class="_li data-v-468de450">昨收
+              <label class="_span data-v-468de450">{{dynaData.ZuoShou}}</label>
+            </view>
+            <view class="_li data-v-468de450">现手
+              <label class="_span data-v-468de450">{{dynaData.XianShou}}</label>
+            </view>
+            <view class="_li data-v-468de450">量比
+              <label class="_span data-v-468de450 {{FontClass}}">{{dynaData.LiangBi}}</label>
+              <view class="_p data-v-468de450"></view>
+            </view>
+            <view class="_li data-v-468de450">流通值
+              <label class="_span data-v-468de450">{{zsDynaData.LiuTongShiZhi}}</label>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view wx:elif="{{stocktype==2}}" class="_div data-v-468de450 header-info-more" hidden="{{!(pankou)}}" catchtouchmove="preventTouchMove">
+        <view class="_div data-v-468de450 header-info-more-w">
+          <view class="_ul data-v-468de450 more-block">
+            <view class="_li data-v-468de450">涨停
+              <label class="_span data-v-468de450 font-red">{{dynaData.ZhangTing}}</label>
+            </view>
+            <view class="_li data-v-468de450">振幅
+              <label class="_span data-v-468de450">{{dynaData.ZhenFu}}</label>
+            </view>
+            <view class="_li data-v-468de450">委比
+              <label class="_span data-v-468de450 {{[  dynaData.WeiBi > 0 ? 'font-red' : '',  dynaData.WeiBi < 0 ? 'font-green' : '',  dynaData.WeiBi == 0 ? 'font-gray' : '']}}">{{dynaData.WeiBi}}</label>
+            </view>
+            <view class="_li data-v-468de450">流通股
+              <label class="_span data-v-468de450">{{dynaData.LiuTongAGu}}</label>
+            </view>
+            <view class="_li data-v-468de450">总股本
+              <label class="_span data-v-468de450">{{dynaData.ZongGuBen}}</label>
+            </view>
+            <view class="_li data-v-468de450">市盈率(动)
+              <label class="_span data-v-468de450">{{dynaData.ShiYingLv}}</label>
+            </view>
+            <view class="_li data-v-468de450">市盈率(静)
+              <label class="_span data-v-468de450">{{dynaData.JingTaiShiYingLv}}</label>
+            </view>
+          </view>
+          <view class="_ul data-v-468de450 more-block">
+            <view class="_li data-v-468de450">跌停
+              <label class="_span data-v-468de450 font-green">{{dynaData.DieTing}}</label>
+            </view>
+            <view class="_li data-v-468de450">均价
+              <label class="_span data-v-468de450">{{dynaData.JunJia}}</label>
+            </view>
+            <view class="_li data-v-468de450">今开
+              <label class="_span data-v-468de450 {{FontClass}}">{{dynaData.KaiPanJia}}</label>
+            </view>
+            <view class="_li data-v-468de450">外盘
+              <label class="_span data-v-468de450 font-red">{{dynaData.WaiPan}}</label>
+            </view>
+            <view class="_li data-v-468de450">内盘
+              <label class="_span data-v-468de450 font-green">{{dynaData.NeiPan}}</label>
+            </view>
+            <view class="_li data-v-468de450">流通值
+              <label class="_span data-v-468de450">{{dynaData.LiuTongShiZhi}}</label>
+            </view>
+            <view class="_li data-v-468de450">市净率
+              <label class="_span data-v-468de450">{{dynaData.ShiJingLv}}</label>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view wx:elif="{{stocktype==3 || stocktype==4}}" class="_div data-v-468de450 header-info-more" hidden="{{!(pankou)}}" catchtouchmove="preventTouchMove">
+        <view class="_div data-v-468de450 header-info-more-w">
+          <view class="_ul data-v-468de450 more-block">
+            <view class="_li data-v-468de450">振幅
+              <label class="_span data-v-468de450">{{dynaData.ZhenFu}}</label>
+            </view>
+            <view class="_li data-v-468de450">今开
+              <label class="_span data-v-468de450 {{FontClass}}">{{dynaData.KaiPanJia}}</label>
+            </view>
+            <view class="_li data-v-468de450">外盘
+              <label class="_span data-v-468de450 font-red">{{dynaData.WaiPan}}</label>
+            </view>
+            <view class="_li data-v-468de450">委比
+              <label class="_span data-v-468de450 {{[  dynaData.WeiBi > 0 ? 'font-red' : '',  dynaData.WeiBi < 0 ? 'font-green' : '',  dynaData.WeiBi == 0 ? 'font-gray' : '']}}">{{dynaData.WeiBi}}</label>
+            </view>
+          </view>
+          <view class="_ul data-v-468de450 more-block">
+            <view class="_li data-v-468de450">均价
+              <label class="_span data-v-468de450">{{dynaData.JunJia}}</label>
+            </view>
+            <view class="_li data-v-468de450">昨收
+              <label class="_span data-v-468de450">{{dynaData.ZuoShou}}</label>
+            </view>
+            <view class="_li data-v-468de450">内盘
+              <label class="_span data-v-468de450 font-green">{{dynaData.NeiPan}}</label>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view wx:else class="_div data-v-468de450 header-info-more" hidden="{{!(pankou)}}" catchtouchmove="preventTouchMove">
+        <view class="_div data-v-468de450 header-info-more-w">
+          <view class="_ul data-v-468de450 more-block">
+            <view class="_li data-v-468de450">涨停
+              <label class="_span data-v-468de450 font-red">{{dynaData.ZhangTing}}</label>
+            </view>
+            <view class="_li data-v-468de450">今开
+              <label class="_span data-v-468de450 {{FontClass}}">{{dynaData.KaiPanJia}}</label>
+            </view>
+          </view>
+          <view class="_ul data-v-468de450 more-block">
+            <view class="_li data-v-468de450">跌停
+              <label class="_span data-v-468de450 font-green">{{dynaData.DieTing}}</label>
+            </view>
+            <view class="_li data-v-468de450">昨收
+              <label class="_span data-v-468de450">{{dynaData.ZuoShou}}</label>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="_nav data-v-468de450 nav nav-tab4">
+      <label bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_span data-v-468de450 {{[period == 'min' ? 'cur' : '']}}">分时</label>
+      <label bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_span data-v-468de450 {{[period == '1day' ? 'cur' : '']}}">日k</label>
+      <label bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_span data-v-468de450 {{[period == 'week' ? 'cur' : '']}}">周k</label>
+      <label bindtap="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}" class="_span data-v-468de450 {{[period == 'month' ? 'cur' : '']}}">月k</label>
+    </view>
+    <view class="_main data-v-468de450 main">
+      <view hidden="{{!(!pankou)}}" class="_div data-v-468de450 {{[IsAstock && period == 'min' ? 'main-l' : '']}}">
+        <canvas wx:if="{{IsAstock}}" canvas-id="1" class="_canvas data-v-468de450" style=" {{('width:' + (chartWidth + 'px') + ';' + 'height:' + (chartHeight + 'px') + ';')}}"></canvas>
+        <canvas wx:else canvas-id="2" class="_canvas data-v-468de450" style=" {{(  'width:' +  (chartWidth2 + 'px') +  ';' +  'height:' +  (chartHeight + 'px') +  ';')}}"></canvas>
+      </view>
+      <view wx:if="{{IsAstock && period=='min'}}" class="_div data-v-468de450 main-r">
+        <view class="_div data-v-468de450 main-r-tab">
+          <label bindtap="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}" class="_span data-v-468de450 {{[fiveOrFenbi ? 'cur' : '']}}">五档</label>
+          <label bindtap="handleProxy" data-eventid="{{'6'}}" data-comkey="{{$k}}" class="_span data-v-468de450 {{[!fiveOrFenbi ? 'cur' : '']}}">明细</label>
+        </view>
+        <view class="_div data-v-468de450 main-r-content" bindtap="handleProxy" hidden="{{!(fiveOrFenbi)}}" data-eventid="{{'7'}}" data-comkey="{{$k}}">
+          <view class="_div data-v-468de450 flevel flevel-sell">
+            <view class="_p data-v-468de450">
+              <label class="_span data-v-468de450">卖五</label>
+              <label class="_span data-v-468de450 {{[  dynaData.WeiTuoMaiChuJia5 > dynaData.ZuoShou ? 'font-red' : '',  dynaData.WeiTuoMaiChuJia5 < dynaData.ZuoShou ? 'font-green' : '',  dynaData.WeiTuoMaiChuJia5 == dynaData.ZuoShou ? 'font-gray' : '']}}">{{dynaData.WeiTuoMaiChuJia5Txt}}</label>
+              <label class="_span data-v-468de450">{{dynaData.WeiTuoMaiChuLiang5Txt}}</label>
+            </view>
+            <view class="_p data-v-468de450">
+              <label class="_span data-v-468de450">卖四</label>
+              <label class="_span data-v-468de450 {{[  dynaData.WeiTuoMaiChuJia4 > dynaData.ZuoShou ? 'font-red' : '',  dynaData.WeiTuoMaiChuJia4 < dynaData.ZuoShou ? 'font-green' : '',  dynaData.WeiTuoMaiChuJia4 == dynaData.ZuoShou ? 'font-gray' : '']}}">{{dynaData.WeiTuoMaiChuJia4Txt}}</label>
+              <label class="_span data-v-468de450">{{dynaData.WeiTuoMaiChuLiang4Txt}}</label>
+            </view>
+            <view class="_p data-v-468de450">
+              <label class="_span data-v-468de450">卖三</label>
+              <label class="_span data-v-468de450 {{[  dynaData.WeiTuoMaiChuJia3 > dynaData.ZuoShou ? 'font-red' : '',  dynaData.WeiTuoMaiChuJia3 < dynaData.ZuoShou ? 'font-green' : '',  dynaData.WeiTuoMaiChuJia3 == dynaData.ZuoShou ? 'font-gray' : '']}}">{{dynaData.WeiTuoMaiChuJia3Txt}}</label>
+              <label class="_span data-v-468de450">{{dynaData.WeiTuoMaiChuLiang3Txt}}</label>
+            </view>
+            <view class="_p data-v-468de450">
+              <label class="_span data-v-468de450">卖二</label>
+              <label class="_span data-v-468de450 {{[  dynaData.WeiTuoMaiChuJia2 > dynaData.ZuoShou ? 'font-red' : '',  dynaData.WeiTuoMaiChuJia2 < dynaData.ZuoShou ? 'font-green' : '',  dynaData.WeiTuoMaiChuJia2 == dynaData.ZuoShou ? 'font-gray' : '']}}">{{dynaData.WeiTuoMaiChuJia2Txt}}</label>
+              <label class="_span data-v-468de450">{{dynaData.WeiTuoMaiChuLiang2Txt}}</label>
+            </view>
+            <view class="_p data-v-468de450">
+              <label class="_span data-v-468de450">卖一</label>
+              <label class="_span data-v-468de450 {{[  dynaData.WeiTuoMaiChuJia1 > dynaData.ZuoShou ? 'font-red' : '',  dynaData.WeiTuoMaiChuJia1 < dynaData.ZuoShou ? 'font-green' : '',  dynaData.WeiTuoMaiChuJia1 == dynaData.ZuoShou ? 'font-gray' : '']}}">{{dynaData.WeiTuoMaiChuJia1Txt}}</label>
+              <label class="_span data-v-468de450">{{dynaData.WeiTuoMaiChuLiang1Txt}}</label>
+            </view>
+          </view>
+          <view class="_div data-v-468de450 flevel flevel-buy">
+            <view class="_p data-v-468de450">
+              <label class="_span data-v-468de450">买一</label>
+              <label class="_span data-v-468de450 {{[  dynaData.WeiTuoMaiRuJia1 > dynaData.ZuoShou ? 'font-red' : '',  dynaData.WeiTuoMaiRuJia1 < dynaData.ZuoShou ? 'font-green' : '',  dynaData.WeiTuoMaiRuJia1 == dynaData.ZuoShou ? 'font-gray' : '']}}">{{dynaData.WeiTuoMaiRuJia1Txt}}</label>
+              <label class="_span data-v-468de450">{{dynaData.WeiTuoMaiRuLiang1Txt}}</label>
+            </view>
+            <view class="_p data-v-468de450">
+              <label class="_span data-v-468de450">买二</label>
+              <label class="_span data-v-468de450 {{[  dynaData.WeiTuoMaiRuJia2 > dynaData.ZuoShou ? 'font-red' : '',  dynaData.WeiTuoMaiRuJia2 < dynaData.ZuoShou ? 'font-green' : '',  dynaData.WeiTuoMaiRuJia2 == dynaData.ZuoShou ? 'font-gray' : '']}}">{{dynaData.WeiTuoMaiRuJia2Txt}}</label>
+              <label class="_span data-v-468de450">{{dynaData.WeiTuoMaiRuLiang2Txt}}</label>
+            </view>
+            <view class="_p data-v-468de450">
+              <label class="_span data-v-468de450">买三</label>
+              <label class="_span data-v-468de450 {{[  dynaData.WeiTuoMaiRuJia3 > dynaData.ZuoShou ? 'font-red' : '',  dynaData.WeiTuoMaiRuJia3 < dynaData.ZuoShou ? 'font-green' : '',  dynaData.WeiTuoMaiRuJia3 == dynaData.ZuoShou ? 'font-gray' : '']}}">{{dynaData.WeiTuoMaiRuJia3Txt}}</label>
+              <label class="_span data-v-468de450">{{dynaData.WeiTuoMaiRuLiang3Txt}}</label>
+            </view>
+            <view class="_p data-v-468de450">
+              <label class="_span data-v-468de450">买四</label>
+              <label class="_span data-v-468de450 {{[  dynaData.WeiTuoMaiRuJia4 > dynaData.ZuoShou ? 'font-red' : '',  dynaData.WeiTuoMaiRuJia4 < dynaData.ZuoShou ? 'font-green' : '',  dynaData.WeiTuoMaiRuJia4 == dynaData.ZuoShou ? 'font-gray' : '']}}">{{dynaData.WeiTuoMaiRuJia4Txt}}</label>
+              <label class="_span data-v-468de450">{{dynaData.WeiTuoMaiRuLiang4Txt}}</label>
+            </view>
+            <view class="_p data-v-468de450">
+              <label class="_span data-v-468de450">买五</label>
+              <label class="_span data-v-468de450 {{[  dynaData.WeiTuoMaiRuJia5 > dynaData.ZuoShou ? 'font-red' : '',  dynaData.WeiTuoMaiRuJia5 < dynaData.ZuoShou ? 'font-green' : '',  dynaData.WeiTuoMaiRuJia5 == dynaData.ZuoShou ? 'font-gray' : '']}}">{{dynaData.WeiTuoMaiRuJia5Txt}}</label>
+              <label class="_span data-v-468de450">{{dynaData.WeiTuoMaiRuLiang5Txt}}</label>
+            </view>
+          </view>
+        </view>
+        <view class="_div data-v-468de450 main-r-content" bindtap="handleProxy" hidden="{{!(!fiveOrFenbi)}}" data-eventid="{{'8'}}" data-comkey="{{$k}}">
+          <view class="_div data-v-468de450 r-trade">
+            <view wx:for="{{fenbiList}}" wx:for-index="index" wx:for-item="fenbi" class="_p data-v-468de450">
+              <label class="_span data-v-468de450">{{fenbi.ShiJian}}</label>
+              <label class="_span data-v-468de450 font-green">{{fenbi.ChengJiaoJia}}</label>
+              <label class="_span data-v-468de450 font-green">{{fenbi.DanCiChengJiaoLiang}}</label>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="_section data-v-468de450 news">
+      <view class="_h2 data-v-468de450 news-tit">相关新闻</view>
+      <view wx:if="{{stockNewsList.length>0}}" class="_div data-v-468de450 news-list">
+        <view class="_div data-v-468de450 item" wx:for="{{stockNewsList}}" wx:for-index="index" wx:for-item="news">
+          <navigator url="{{'/pages/newsdetail/main?jsonurl='+news.url}}" class="_a data-v-468de450">
+            <view class="_h3 data-v-468de450">{{news.title}}</view>
+            <view class="_p data-v-468de450">
+              <label class="_span data-v-468de450 fl">{{news.source}}</label>
+              <label class="_span data-v-468de450 fr">{{news.otime}}</label>
+            </view>
+          </navigator>
+        </view>
+        <view hidden="{{!(newsCurPage<=4)}}" class="_p data-v-468de450 load-more" bindtap="handleProxy" data-eventid="{{'9'}}" data-comkey="{{$k}}">点击加载更多</view>
+      </view>
+      <view wx:else class="_div data-v-468de450 blank">
+        <view class="_p data-v-468de450">暂无数据</view>
+      </view>
+    </view>
+    <view class="_footer data-v-468de450 footer">
+      <label wx:if="{{isPortfolio}}" class="_span data-v-468de450 ft-btn ft-btn-minus" bindtap="handleProxy" data-eventid="{{'11'}}" data-comkey="{{$k}}">
+        <view class="_i data-v-468de450"></view>删自选</label>
+      <label wx:else class="_span data-v-468de450 ft-btn" bindtap="handleProxy" data-eventid="{{'10'}}" data-comkey="{{$k}}">
+        <view class="_i data-v-468de450"></view>加自选</label>
+    </view>
+    <view class="_p data-v-468de450 pop-alert" hidden="{{!(AlterShowFlag)}}">{{AlterTxt}}自选股成功</view>
+    <view hidden="{{!(fromApp)}}" class="_aside data-v-468de450 side-bar {{[isFoldUp ? 'foldUp' : '']}}">
+      <button open-type="launchApp" app-parameter="{{'dzh_browser_url&goto=0&type=2970&code='+code+'&kind=1'}}" binderror="handleProxy" class="_button data-v-468de450 right-bar right-bar1" data-eventid="{{'12'}}" data-comkey="{{$k}}">打开
+        <view class="_br data-v-468de450"></view>APP</button>
+      <button app-parameter class="_button data-v-468de450 right-bar right-bar2" bindtap="handleProxy" data-eventid="{{'13'}}" data-comkey="{{$k}}">去首页</button>
+      <label class="_span data-v-468de450 side-bar-icon" bindtap="handleProxy" data-eventid="{{'14'}}" data-comkey="{{$k}}"></label>
+    </view>
+  </view>
+</template>

@@ -1,0 +1,4 @@
+<template name="wxParseImg$2bcf5fca">
+  <image mode="{{node.attr.mode}}" lazy-load="{{node.attr.lazyLoad}}" data-src="{{node.attr.src}}" src="{{node.attr.src}}" bindtap="handleProxy" bindload="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_image data-v-14fa2ef6 {{node.classStr}}"
+    style=" {{newStyleStr || node.styleStr}}"></image>
+</template>

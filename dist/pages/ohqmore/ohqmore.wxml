@@ -1,0 +1,20 @@
+<view class="_div">
+  <view class="_section market-list-th">
+    <label class="_span ">沪深A股</label>
+    <label bindtap="sortby" id="tb1" data-hi="{{tab1}}" class="_span  {{tab1class}}">{{title1}}</label>
+    <label bindtap="sortby" id="tb2" data-hi="{{tab2}}" class="_span  {{tab2class}}">{{title2}}</label>
+  </view>
+  <view class="_section  market-list-tb">
+    <scroll-view class="_scroll-view  ranking-list" scroll-y="true" bindscrolltolower="lower" style=" {{('height:' + (windowHeight + 'px') + ';')}}">
+      <view wx:key="index" key="{{index}}" wx:for="{{stockList}}" wx:for-index="index" wx:for-item="stock" class="_li ">
+        <navigator url="{{'/pages/stock/main?code='+stock.Obj}}" class="_a ">
+          <label class="_span ">{{stock.ZhongWenJianCheng}}
+            <view class="_small ">{{stock.Obj}}</view>
+          </label>
+          <label class="_span  {{[  stock.ZhangFu > 0 ? 'font-red' : '',  stock.ZhangFu < 0 ? 'font-green' : '',  stock.ZhangFu == 0 ? 'font-gray' : '']}}">{{stock.ZuiXinJiaTxt}}</label>
+          <label class="_span  {{[  stock.ZhangFu > 0 ? 'font-red' : '',  stock.ZhangFu < 0 ? 'font-green' : '',  stock.ZhangFu == 0 ? 'font-gray' : '']}}">{{stock.title2TXT}}</label>
+        </navigator>
+      </view>
+    </scroll-view>
+  </view>
+</view>

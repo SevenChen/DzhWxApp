@@ -1,0 +1,24 @@
+<template name="search$4ee9362e">
+  <view class="_div data-v-4fb02504">
+    <view class="_header data-v-4fb02504 sch sch-fixTop">
+      <view class="_div data-v-4fb02504 flex">
+        <image src="/static/images/icon_search.png" alt class="_img data-v-4fb02504"></image>
+        <input type="text" placeholder="输入股票代码/首字母" class="_input data-v-4fb02504 space" value="{{stockkey}}" bindinput="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" />
+      </view>
+    </view>
+    <view class="_section data-v-4fb02504 sch-history">
+      <view class="_h2 data-v-4fb02504 history-tit">搜索结果</view>
+      <view class="_ul data-v-4fb02504 history-list">
+        <view wx:key="index" key="{{index}}" wx:for="{{resList}}" wx:for-index="index" wx:for-item="stock" class="_li data-v-4fb02504">
+          <navigator url="{{'/pages/stock/main?code='+stock.DaiMa}}" class="_a data-v-4fb02504">
+            <view class="_b data-v-4fb02504 stock-tag">{{stock.Market}}</view>
+            <label class="_span data-v-4fb02504 stock-code">{{stock.Code}}</label>
+            <label class="_span data-v-4fb02504 stock-name {{[!stock.isAddPro ? 'xl' : '']}}">{{stock.MingCheng}}</label>
+          </navigator>
+          <label wx:if="{{stock.isAddPro}}" class="_span data-v-4fb02504 operate-btn btn-minus" bindtap="handleProxy" data-eventid="{{'2-'+index}}" data-comkey="{{$k}}">已加入</label>
+          <label wx:else class="_span data-v-4fb02504 operate-btn btn-add" bindtap="handleProxy" data-eventid="{{'1-'+index}}" data-comkey="{{$k}}"></label>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

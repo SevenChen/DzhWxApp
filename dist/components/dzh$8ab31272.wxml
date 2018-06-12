@@ -1,0 +1,56 @@
+<template name="dzh$8ab31272">
+  <view class="_div data-v-483fb6e8">
+    <view class="_header data-v-483fb6e8 header flex header-blue">
+      <navigator url="/pages/stock/main?code=SH000001" class="_a data-v-483fb6e8 space {{[  shzs.ZhangFu > 0 ? 'mod-red' : '',  shzs.ZhangFu < 0 ? 'mod-green' : '',  shzs.ZhangFu == 0 ? 'mod-gray' : '']}}">
+        <label class="_span data-v-483fb6e8">{{shzs.ZuiXinJiaTxt}}</label>
+        <view class="_p data-v-483fb6e8">上证
+          <label class="_span data-v-483fb6e8 {{[  shzs.ZhangFu > 0 ? 'font-red' : '',  shzs.ZhangFu < 0 ? 'font-green' : '',  shzs.ZhangFu == 0 ? 'font-gray' : '']}}">{{shzs.ZhangFuTxt}}</label>
+        </view>
+      </navigator>
+      <navigator url="/pages/stock/main?code=SZ399001" class="_a data-v-483fb6e8 space {{[  szzs.ZhangFu > 0 ? 'mod-red' : '',  szzs.ZhangFu < 0 ? 'mod-green' : '',  szzs.ZhangFu == 0 ? 'mod-gray' : '']}}">
+        <label class="_span data-v-483fb6e8">{{szzs.ZuiXinJiaTxt}}</label>
+        <view class="_p data-v-483fb6e8">深证
+          <label class="_span data-v-483fb6e8 {{[  szzs.ZhangFu > 0 ? 'font-red' : '',  szzs.ZhangFu < 0 ? 'font-green' : '',  szzs.ZhangFu == 0 ? 'font-gray' : '']}}">{{szzs.ZhangFuTxt}}</label>
+        </view>
+      </navigator>
+      <navigator url="/pages/stock/main?code=SZ399006" class="_a data-v-483fb6e8 space {{[  cyzs.ZhangFu > 0 ? 'mod-red' : '',  cyzs.ZhangFu < 0 ? 'mod-green' : '',  cyzs.ZhangFu == 0 ? 'mod-gray' : '']}}">
+        <label class="_span data-v-483fb6e8">{{cyzs.ZuiXinJiaTxt}}</label>
+        <view class="_p data-v-483fb6e8">创业
+          <label class="_span data-v-483fb6e8 {{[  cyzs.ZhangFu > 0 ? 'font-red' : '',  cyzs.ZhangFu < 0 ? 'font-green' : '',  cyzs.ZhangFu == 0 ? 'font-gray' : '']}}">{{cyzs.ZhangFuTxt}}</label>
+        </view>
+      </navigator>
+    </view>
+    <view class="_main data-v-483fb6e8 main">
+      <view class="_section data-v-483fb6e8 sch">
+        <navigator url="/pages/search/main" class="_a data-v-483fb6e8">
+          <image src="/static/images/icon_search.png" alt class="_img data-v-483fb6e8"></image>输入股票代码/首字母</navigator>
+      </view>
+      <view class="_article data-v-483fb6e8 stock-selected">
+        <view wx:if="{{!isExitSelf}}" class="_div data-v-483fb6e8 selected-blank">
+          <navigator url="/pages/search/main" class="_a data-v-483fb6e8">+</navigator>
+          <view class="_p data-v-483fb6e8">添加自选股</view>
+        </view>
+        <view wx:else class="_div data-v-483fb6e8 stock-list">
+          <view class="_div data-v-483fb6e8 stock-list-hd">
+            <label class="_span data-v-483fb6e8">名称</label>
+            <label bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_span data-v-483fb6e8">最新</label>
+            <label bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_span data-v-483fb6e8">涨跌幅</label>
+          </view>
+          <view class="_ul data-v-483fb6e8 stock-list-bd">
+            <view wx:key="index" key="{{index}}" wx:for="{{selfstockHqD}}" wx:for-index="index" wx:for-item="stock" class="_li data-v-483fb6e8">
+              <navigator url="{{'/pages/stock/main?code='+stock.Obj}}" class="_a data-v-483fb6e8">
+                <view class="_div data-v-483fb6e8">{{stock.ZhongWenJianCheng}}
+                  <view class="_small data-v-483fb6e8">{{stock.Obj}}</view>
+                </view>
+                <view class="_div data-v-483fb6e8">{{stock.ZuiXinJiaTxt}}</view>
+                <view class="_div data-v-483fb6e8">
+                  <label class="_span data-v-483fb6e8 {{[  stock.ZhangFu > 0 ? 'block-red' : '',  stock.ZhangFu < 0 ? 'block-green' : '',  stock.ZhangFu == 0 || stock.ZhangFu == null ? 'block-gray' : '']}}">{{stock.ZhangFuTxt}}</label>
+                </view>
+              </navigator>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

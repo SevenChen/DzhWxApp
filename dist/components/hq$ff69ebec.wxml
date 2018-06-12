@@ -1,0 +1,142 @@
+<template name="hq$ff69ebec">
+  <view class="_div data-v-581be0b6">
+    <view class="_header data-v-581be0b6 sch sch_gray">
+      <navigator url="/pages/search/main" class="_a data-v-581be0b6">
+        <image src="/static/images/icon_search.png" alt class="_img data-v-581be0b6"></image>输入股票代码/首字母</navigator>
+    </view>
+    <view class="_main data-v-581be0b6 main">
+      <view class="_section data-v-581be0b6 mb5 index mod">
+        <view class="_div data-v-581be0b6 flex index_market">
+          <navigator url="/pages/stock/main?code=SH000001" class="_a data-v-581be0b6 space {{[  shzs.ZhangFu > 0 ? 'mod-red' : '',  shzs.ZhangFu < 0 ? 'mod-green' : '',  shzs.ZhangFu == 0 ? 'mod-gray' : '']}}"> 上证指数
+            <view class="_p data-v-581be0b6">{{shzs.ZuiXinJiaTxt}}</view>
+            <view class="_p data-v-581be0b6">
+              <label class="_span data-v-581be0b6">{{shzs.ZhangDieTxt}}</label>
+              <label class="_span data-v-581be0b6">{{shzs.ZhangFuTxt}}</label>
+            </view>
+          </navigator>
+          <navigator url="/pages/stock/main?code=SZ399001" class="_a data-v-581be0b6 space {{[  szzs.ZhangFu > 0 ? 'mod-red' : '',  szzs.ZhangFu < 0 ? 'mod-green' : '',  szzs.ZhangFu == 0 ? 'mod-gray' : '']}}"> 深证成指
+            <view class="_p data-v-581be0b6">{{szzs.ZuiXinJiaTxt}}</view>
+            <view class="_p data-v-581be0b6">
+              <label class="_span data-v-581be0b6">{{szzs.ZhangDieTxt}}</label>
+              <label class="_span data-v-581be0b6">{{szzs.ZhangFuTxt}}</label>
+            </view>
+          </navigator>
+          <navigator url="/pages/stock/main?code=SZ399006" class="_a data-v-581be0b6 space {{[  cyzs.ZhangFu > 0 ? 'mod-red' : '',  cyzs.ZhangFu < 0 ? 'mod-green' : '',  cyzs.ZhangFu == 0 ? 'mod-gray' : '']}}"> 创业板指
+            <view class="_p data-v-581be0b6">{{cyzs.ZuiXinJiaTxt}}</view>
+            <view class="_p data-v-581be0b6">
+              <label class="_span data-v-581be0b6">{{cyzs.ZhangDieTxt}}</label>
+              <label class="_span data-v-581be0b6">{{cyzs.ZhangFuTxt}}</label>
+            </view>
+          </navigator>
+        </view>
+        <view class="_div data-v-581be0b6 index_info">
+          <view class="_div data-v-581be0b6 arr-green">下跌
+            <label class="_span data-v-581be0b6">{{xiadie}}家</label>
+          </view>
+          <view class="_div data-v-581be0b6 arr-gray">平盘
+            <label class="_span data-v-581be0b6">{{ping}}家</label>
+          </view>
+          <view class="_div data-v-581be0b6 arr-red">上涨
+            <label class="_span data-v-581be0b6">{{shangzhang}}家</label>
+          </view>
+        </view>
+      </view>
+      <view class="_section data-v-581be0b6 mb10 ranking mod">
+        <view class="_h2 data-v-581be0b6 tit tit-dropDown {{[zfb.length > 0 ? 'up' : '']}}" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">涨幅榜
+          <navigator url="{{'/pages/ohqmore/ohqmore?tp=zfb&token='+token}}" class="_a data-v-581be0b6">
+            <view class="_i data-v-581be0b6"></view>
+          </navigator>
+        </view>
+        <view class="_ul data-v-581be0b6 ranking-list">
+          <view wx:key="index" key="{{index}}" wx:for="{{zfb}}" wx:for-index="index" wx:for-item="stock" class="_li data-v-581be0b6">
+            <navigator url="{{'/pages/stock/main?code='+stock.Obj}}" class="_a data-v-581be0b6">
+              <label class="_span data-v-581be0b6">{{stock.ZhongWenJianCheng}}</label>
+              <label class="_span data-v-581be0b6 font-red">{{stock.ZuiXinJiaTxt}}</label>
+              <label class="_span data-v-581be0b6 font-red">{{stock.ZhangFuTxt}}</label>
+            </navigator>
+          </view>
+        </view>
+      </view>
+      <view class="_section data-v-581be0b6 mb10 ranking mod">
+        <view class="_h2 data-v-581be0b6 tit tit-dropDown {{[dfb.length > 0 ? 'up' : '']}}" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">跌幅榜
+          <navigator url="{{'/pages/ohqmore/ohqmore?tp=dfb&token='+token}}" class="_a data-v-581be0b6">
+            <view class="_i data-v-581be0b6"></view>
+          </navigator>
+        </view>
+        <view class="_ul data-v-581be0b6 ranking-list">
+          <view wx:key="index" key="{{index}}" wx:for="{{dfb}}" wx:for-index="index" wx:for-item="stock" class="_li data-v-581be0b6">
+            <navigator url="{{'/pages/stock/main?code='+stock.Obj}}" class="_a data-v-581be0b6">
+              <label class="_span data-v-581be0b6">{{stock.ZhongWenJianCheng}}</label>
+              <label class="_span data-v-581be0b6 font-green">{{stock.ZuiXinJiaTxt}}</label>
+              <label class="_span data-v-581be0b6 font-green">{{stock.ZhangFuTxt}}</label>
+            </navigator>
+          </view>
+        </view>
+      </view>
+      <view class="_section data-v-581be0b6 mb10 ranking mod">
+        <view class="_h2 data-v-581be0b6 tit tit-dropDown {{[fivezfb.length > 0 ? 'up' : '']}}" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">5分钟涨跌幅
+          <navigator url="{{'/pages/ohqmore/ohqmore?tp=fivezfb&token='+token}}" class="_a data-v-581be0b6">
+            <view class="_i data-v-581be0b6"></view>
+          </navigator>
+        </view>
+        <view class="_ul data-v-581be0b6 ranking-list">
+          <view wx:key="index" key="{{index}}" wx:for="{{fivezfb}}" wx:for-index="index" wx:for-item="stock" class="_li data-v-581be0b6">
+            <navigator url="{{'/pages/stock/main?code='+stock.Obj}}" class="_a data-v-581be0b6">
+              <label class="_span data-v-581be0b6">{{stock.ZhongWenJianCheng}}</label>
+              <label class="_span data-v-581be0b6 {{[  stock.ZhangFu > 0 ? 'font-red' : '',  stock.ZhangFu < 0 ? 'font-green' : '',  stock.ZhangFu == 0 ? 'font-gray' : '']}}">{{stock.ZuiXinJiaTxt}}</label>
+              <label class="_span data-v-581be0b6 {{[  stock.ZhangFu > 0 ? 'font-red' : '',  stock.ZhangFu < 0 ? 'font-green' : '',  stock.ZhangFu == 0 ? 'font-gray' : '']}}">{{stock.FenZhongZhangFu5Txt}}</label>
+            </navigator>
+          </view>
+        </view>
+      </view>
+      <view class="_section data-v-581be0b6 mb10 ranking mod">
+        <view class="_h2 data-v-581be0b6 tit tit-dropDown {{[huanshou.length > 0 ? 'up' : '']}}" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}">换手率
+          <navigator url="{{'/pages/ohqmore/ohqmore?tp=huanshou&token='+token}}" class="_a data-v-581be0b6">
+            <view class="_i data-v-581be0b6"></view>
+          </navigator>
+        </view>
+        <view class="_ul data-v-581be0b6 ranking-list">
+          <view wx:key="index" key="{{index}}" wx:for="{{huanshou}}" wx:for-index="index" wx:for-item="stock" class="_li data-v-581be0b6">
+            <navigator url="{{'/pages/stock/main?code='+stock.Obj}}" class="_a data-v-581be0b6">
+              <label class="_span data-v-581be0b6">{{stock.ZhongWenJianCheng}}</label>
+              <label class="_span data-v-581be0b6 {{[  stock.ZhangFu > 0 ? 'font-red' : '',  stock.ZhangFu < 0 ? 'font-green' : '',  stock.ZhangFu == 0 ? 'font-gray' : '']}}">{{stock.ZuiXinJiaTxt}}</label>
+              <label class="_span data-v-581be0b6 {{[  stock.ZhangFu > 0 ? 'font-red' : '',  stock.ZhangFu < 0 ? 'font-green' : '',  stock.ZhangFu == 0 ? 'font-gray' : '']}}">{{stock.HuanShou}}%</label>
+            </navigator>
+          </view>
+        </view>
+      </view>
+      <view class="_section data-v-581be0b6 mb10 ranking mod">
+        <view class="_h2 data-v-581be0b6 tit tit-dropDown {{[liangbi.length > 0 ? 'up' : '']}}" bindtap="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}">量比
+          <navigator url="{{'/pages/ohqmore/ohqmore?tp=liangbi&token='+token}}" class="_a data-v-581be0b6">
+            <view class="_i data-v-581be0b6"></view>
+          </navigator>
+        </view>
+        <view class="_ul data-v-581be0b6 ranking-list">
+          <view wx:key="index" key="{{index}}" wx:for="{{liangbi}}" wx:for-index="index" wx:for-item="stock" class="_li data-v-581be0b6">
+            <navigator url="{{'/pages/stock/main?code='+stock.Obj}}" class="_a data-v-581be0b6">
+              <label class="_span data-v-581be0b6">{{stock.ZhongWenJianCheng}}</label>
+              <label class="_span data-v-581be0b6 {{[  stock.ZhangFu > 0 ? 'font-red' : '',  stock.ZhangFu < 0 ? 'font-green' : '',  stock.ZhangFu == 0 ? 'font-gray' : '']}}">{{stock.ZuiXinJiaTxt}}</label>
+              <label class="_span data-v-581be0b6 {{[  stock.ZhangFu > 0 ? 'font-red' : '',  stock.ZhangFu < 0 ? 'font-green' : '',  stock.ZhangFu == 0 ? 'font-gray' : '']}}">{{stock.LiangBi}}</label>
+            </navigator>
+          </view>
+        </view>
+      </view>
+      <view class="_section data-v-581be0b6 mb10 ranking mod">
+        <view class="_h2 data-v-581be0b6 tit tit-dropDown {{[cje.length > 0 ? 'up' : '']}}" bindtap="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}">成交额
+          <navigator url="{{'/pages/ohqmore/ohqmore?tp=cje&token='+token}}" class="_a data-v-581be0b6">
+            <view class="_i data-v-581be0b6"></view>
+          </navigator>
+        </view>
+        <view class="_ul data-v-581be0b6 ranking-list">
+          <view wx:key="index" key="{{index}}" wx:for="{{cje}}" wx:for-index="index" wx:for-item="stock" class="_li data-v-581be0b6">
+            <navigator url="{{'/pages/stock/main?code='+stock.Obj}}" class="_a data-v-581be0b6">
+              <label class="_span data-v-581be0b6">{{stock.ZhongWenJianCheng}}</label>
+              <label class="_span data-v-581be0b6 {{[  stock.ZhangFu > 0 ? 'font-red' : '',  stock.ZhangFu < 0 ? 'font-green' : '',  stock.ZhangFu == 0 ? 'font-gray' : '']}}">{{stock.ZuiXinJiaTxt}}</label>
+              <label class="_span data-v-581be0b6 {{[  stock.ZhangFu > 0 ? 'font-red' : '',  stock.ZhangFu < 0 ? 'font-green' : '',  stock.ZhangFu == 0 ? 'font-gray' : '']}}">{{stock.ChengJiaoE}}亿</label>
+            </navigator>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
